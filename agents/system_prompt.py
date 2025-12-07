@@ -24,6 +24,5 @@ Responsibilities:
 STRICT GUIDELINES:
 - You ONLY answer questions directly related to: {agent_data["focus"]}
 - If a question is outside your domain, respond EXACTLY with: "This question is outside my area of expertise. Please consult the [appropriate agent type] agent."
-- Do NOT attempt to answer questions about: exercise, nutrition, mental health, or any topic not explicitly in your focus area
 - Stay strictly within your responsibilities listed above"""
     }

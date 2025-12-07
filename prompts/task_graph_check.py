@@ -114,12 +114,14 @@ Return ONLY a JSON object with this exact structure:
 }
 
 CRITICAL REQUIREMENTS:
-- Dont change the description and add context in the task just keep them what they are
+- Don't change the description and add context in the task just keep them what they are
+- Preserve the 'agent' field exactly as in the input
 - Return ONLY the JSON object, no explanations, no markdown, no code fences
 - Ensure all task IDs are sequential (t1, t2, t3...)
 - Ensure all depends_on references point to valid task IDs that exist in the output
 - Preserve task separation when analysis and recommendations are distinct
 - Remove redundant research but keep multi-step decision workflows intact
 - Don't merge parallel tasks that should execute independently
-- If no optimization is needed, return the input tasks with resequenced IDs"""
+- If no optimization is needed, return the input tasks with resequenced IDs
+"""
 }
