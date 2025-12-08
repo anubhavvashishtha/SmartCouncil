@@ -120,7 +120,8 @@ t3: Create diet plan based on recommendation
 
 
 ### Parallel vs Sequential Decision
-![alt text](<architecture/Parallel vs Sequential Decision.png>)
+<img src="architecture/Parallel vs Sequential Decision.png" width="400"/>
+
 
 
 ## 🧠 Intelligent Decision Making
@@ -161,12 +162,11 @@ def get_ready_tasks():
 | responses     | string        | Output/response returned by the task          |
 
 
-
+___
 
 **State Transitions**:
 
-![alt text](<architecture/State Transitions.png>)
-
+<img src="architecture/State Transitions.png" width="400"/>
 
 ---
 
