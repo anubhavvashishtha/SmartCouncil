@@ -140,16 +140,31 @@ def get_ready_tasks():
     
     return ready
 ```
-![alt text](<architecture/Untitled diagram-2025-12-08-140058.png>)
 
 
 ---
 
 ## 📊 Database Schema
-![alt text](<architecture/Database Schema.png>)
+🗂️ tasks Table
+| Column        | Type          | Description                                   |
+|---------------|---------------|-----------------------------------------------|
+| id            | string (PK)   | Unique task ID                                |
+| description   | string        | The human-readable description of the task    |
+| depends_on    | JSON          | List of task IDs this task depends on         |
+| agent         | string        | The agent responsible for executing the task  |
+| resolved      | boolean       | Whether the task is completed (0 or 1)        |
+
+🗂️ completed_task Table
+| Column        | Type          | Description                                   |
+|---------------|---------------|-----------------------------------------------|
+| done_task     | string (PK)   | Task ID that has been completed               |
+| responses     | string        | Output/response returned by the task          |
+
+
 
 
 **State Transitions**:
+
 ![alt text](<architecture/State Transitions.png>)
 
 
