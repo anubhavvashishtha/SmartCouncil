@@ -119,11 +119,6 @@ t3: Create diet plan based on recommendation
 ![alt text](<architecture/Execution Flow.png>)
 
 
-### Parallel vs Sequential Decision
-<img src="architecture/Parallel vs Sequential Decision.png" width="400"/>
-
-
-
 ## 🧠 Intelligent Decision Making
 
 ### Dependency Resolver Logic
