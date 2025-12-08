@@ -1,7 +1,7 @@
 import requests
 import concurrent.futures
 import time , os
-
+from utils.central_database import get_completed_task_responses
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -65,7 +65,7 @@ def run_parallel_tasks(tasks, original_prompt):
     start = time.time()
 
     # Run in parallel
-    with concurrent.futures.ThreadPoolExecutor(max_workers=len(tasks)) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, len(tasks))) as executor:
         futures = [
             executor.submit(send_agent_request, task, original_prompt, i + 1)
             for i, task in enumerate(tasks)
@@ -91,3 +91,9 @@ def run_parallel_tasks(tasks, original_prompt):
 
     return results
 
+def concatinate_previous_response(tasks):
+    for task in tasks:
+            if task["depends_on"]:  # Only add context when dependencies exist
+                task["previous_tasks"] = get_completed_task_responses(task["depends_on"])
+            else:
+                task["previous_tasks"] = []  # Keep consistent structure

@@ -253,3 +253,29 @@ def get_completed_task_responses(task_ids):
 
     conn.close()
     return results
+
+def get_completion_percentage():
+    """
+    Returns the percentage of tasks completed.
+    Formula: (completed_tasks / total_tasks) * 100
+    """
+
+    db_path = "database/central.db"
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+    # Count total tasks
+    cursor.execute("SELECT COUNT(*) FROM tasks")
+    total_tasks = cursor.fetchone()[0]
+
+    # Count completed tasks
+    cursor.execute("SELECT COUNT(*) FROM completed_tasks")
+    completed_tasks = cursor.fetchone()[0]
+
+    conn.close()
+
+    if total_tasks == 0:
+        return 0.0
+
+    percentage = (completed_tasks / total_tasks) * 100
+    return round(percentage, 2)
