@@ -28,7 +28,17 @@
 ```
 
 ### Task Decomposition Phase
-![alt text](<architecture/Task Decomposition Phase for single prompt.png>)
+```
+{
+  "tasks": [{
+    "id": "t1",
+    "description": "Create sleep schedule for gym recovery",
+    "agent": "Sleep",
+    "depends_on": []
+  }]
+}
+```
+
 
 
 **Decision Logic**: Single, focused task - no decomposition needed.
@@ -53,8 +63,29 @@
 ```
 
 ### Task Decomposition Phase
-![alt text](<architecture/Task Decomposition Phase.png>)
-
+```
+{
+  "tasks": [{
+    "id": "t1",
+    "description": "Compare HIIT vs steady cardio for fat loss",
+    "agent": "Exercise",
+    "depends_on": []
+  },
+  {
+    "id": "t2",
+    "description": "Validate exercise safety for high blood pressure",
+    "agent": "Medical",
+    "depends_on": [t1]
+  },
+  {
+    "id": "t3",
+    "description": "Create diet plan based on recommended exercise",
+    "agent": "Diet",
+    "depends_on": [t1, t2]
+  }
+  ]
+}
+```
 
 **Decision Logic**:
 - **t1**: Independent research - can start immediately
